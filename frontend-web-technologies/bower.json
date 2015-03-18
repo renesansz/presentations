@@ -1,0 +1,15 @@
+{
+  "name": "frontend-web-technologies",
+  "version": "1.0.0",
+  "authors": [
+    "Renemari Padillo <padillo.renemari@gmail.com>"
+  ],
+  "description": "Frontend Web Technologies DevCon Presentation",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "gsap": "~1.15.0",
+    "normalize.css": "~3.0.2",
+    "bootstrap": "~3.3.1"
+  }
+}

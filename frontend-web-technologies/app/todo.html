@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Initialize Angular App 'TodoApp' -->
+<html ng-app="TodoApp"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <title>Simple Todo App</title>
+    
+    <!-- VENDOR STYLES -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <!-- APP STYLE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div ng-controller="AppController"
+         class="container">
+
+        <div id="todo-list" class="col-md-7">
+            <section>
+                <h3><u>TODO LIST</u> <span ng-if="todos.length != 0"> - Completed: {{ completedTodoCount() }} of {{ todos.length }}</span></h3>
+            </section>
+            <ul>
+                <li ng-repeat="todo in todos track by $index">
+                    <input type="checkbox" ng-model="todos[$index].isChecked">
+                    <span ng-class="{ checked: todos[$index].isChecked }">{{ todo.title }}</span> | <button class="btn btn-xs btn-danger" ng-click="RemoveTodo($index)"><i class="glyphicon glyphicon-trash"></i></button>
+                </li>
+                <li ng-if="todos.length == 0"><strong>(Pink Panther Song) Todo...Todo...Todo Todo Todo Todo Todoooooooooooooooooooo...todododo</strong></li>
+            </ul>
+        </div>
+
+        <div id="todo-form" class="col-md-4 col-md-offset-1">
+            <h3><i class="glyphicon glyphicon-pencil"></i> Add Todo</h3>
+            <form role="form">
+                <input ng-model="todo"
+                       name="todo" type="text" class="form-control" placeholder="Title"><br>
+                <button ng-click="AddTodo()"
+                        class="btn btn-primary">Add</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Angular Library -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <!-- App scripts -->
+    <script src="scripts/todo.js"></script>
+    <script src="scripts/controller.js"></script>
+</body>
+</html>

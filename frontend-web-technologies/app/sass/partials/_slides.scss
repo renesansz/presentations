@@ -1,0 +1,92 @@
+.slide {
+    background: $primary-color;
+    color: #FFF;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    
+    .slide-sample {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 650px;
+        margin: auto;
+        z-index: 999;
+    }
+    .slide-content {
+        height: 500px;
+        width: 80%;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .logo {
+            img {
+                width: 20%;
+            }
+
+            &.logo-lg {
+                img {
+                    width: 35%;
+                }
+            }
+            &.logo-sm {
+                img {
+                    width: 13%;
+                }
+            }
+        }
+        .heading {
+            font-size: 25px;
+        }
+        h1.heading {
+            font-size: 35px;
+        }
+        .samples {
+            display: inline-block;
+            margin: 10px;
+            vertical-align: middle;
+        }
+    }
+}
+
+/**
+ * INTRODUCTION
+ */
+#introduction {
+    .my-info,
+    .title {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .my-info {
+        text-align: left;
+        margin-right: 130px;
+
+        .my-name {
+            border-bottom: 1px solid #FFF;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    }
+}
+
+/**
+ * FRONTEND TECHNOLOGIES
+ */
+#frontend-technologies {
+}
+
+/**
+ * WHERE TO START
+ */
+#where-to-start-1 {
+}
