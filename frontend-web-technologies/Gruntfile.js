@@ -116,8 +116,6 @@ module.exports = function(grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= app_dir %>/**/*.html',
-                    '<%= app_dir %>/images/**/*',
                 ]
             },
             /** Watch Config Files **/
