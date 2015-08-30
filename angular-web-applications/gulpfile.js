@@ -47,7 +47,7 @@ gulp.task('serve', ['sass', 'ng-annotate'], function () {
     gulp.watch(dir.src.sass + '**/*.scss', ['sass']);
     gulp.watch(dir.src.angular + '**/*.js', ['ng-annotate']);
 
-    gulp.watch(dir.src.base + '**/*.html').on('change', browserSync.reload);
+    gulp.watch([dir.src.base + '**/*.html', dir.src.base + '**/*.js']).on('change', browserSync.reload);
 
 });
 
