@@ -15,6 +15,9 @@
   "dependencies": {
     "angular": "~1.4.5",
     "angular-ui-router": "ui-router#~0.2.15",
-    "gsap": "~1.17.0"
+    "gsap": "~1.18.0"
+  },
+  "resolutions": {
+    "gsap": "~1.18.0"
   }
 }
