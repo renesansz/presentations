@@ -1,2 +1,15 @@
 @import "compass";
 @import "susy";
+
+// Import variables and mixins
+
+@import "modules/all";
+
+////////////////
+/// Partials ///
+////////////////
+
+@import "partials/base";
+@import "partials/reset";
+@import "partials/figures";
+@import "partials/slider";
