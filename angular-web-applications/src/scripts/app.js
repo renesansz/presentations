@@ -1,33 +1,34 @@
 (function () {
 
-    // Set to true to show console.log for debugging
-    var DEBUG_MODE = true;
-
     'use strict';
 
-    var Slide = function (title) {
+    var Slider = function () {
 
         // Constructor
-        this.title = title;
-        this.eleRef = null;
+        this.slides = null;
+        this.currentSlideIdx = 0;
 
     };
 
-    Slide.prototype.SetReference = function (dom) {
-        this.eleRef = dom;
+    Slider.prototype.SetSlides = function (slides) {
+        this.slides = slides;
     };
 
-    Slide.prototype.MoveLeft = function () {};
-    Slide.prototype.MoveRight = function () {};
-    Slide.prototype.TransitionLeft = function () {};
-    Slide.prototype.TransitionRight = function () {};
+    Slider.prototype.GetSlides = function (slides) {
+        return this.slides;
+    };
+    Slider.prototype.NextSlide = function () {
+        console.log('NextSlide');
+    };
+    Slider.prototype.PrevSlide = function () {
+        console.log('PrevSlide');
+    };
 
     /////////////////
     /// APP START ///
     /////////////////
 
-    var slides = [];
-    var currentSlideIdx = 0;
+    var slider = new Slider();
 
     /**
      * Initialize App
@@ -35,6 +36,44 @@
     function Initialize() {
         
         GetSlides();
+        InitializeKeypressListener();
+
+    }
+
+    /**
+     * Initialize Keypress Listener
+     */
+    function InitializeKeypressListener() {
+        console.log(slider);
+        /**
+         * Function: Keydown
+         *
+         * Manipulate keypress actions.
+         *
+         * Parameters:
+         *     (Object) evt - Keydown object
+         *
+         * Returns:
+         *     null
+         */
+        function Keydown(evt) {
+            switch (evt.keyCode) { // keyCode source: http://www.asquare.net/javascript/tests/KeyCode.html
+            case 38: // Up
+                console.log('Up');
+            break;
+            case 37: // Left
+                slider.PrevSlide();
+            break;
+            case 39: // Right
+                slider.NextSlide();
+            break;
+            case 40: // Down
+                console.log('Down');
+            break;
+            }
+        }
+
+        window.onkeydown = Keydown;
 
     }
 
@@ -43,21 +82,24 @@
      */
     function GetSlides() {
 
-        var slidesDOM = document.getElementsByClassName('slide');
+        var slides = document.getElementsByClassName('slide');
 
         setTimeout(function () {
 
-            for (var i = 0, limit = slidesDOM.length; i < limit; ++i) {
+            for (var i = 0, limit = slides.length; i < limit; ++i) {
                 
                 // Set z-index for each slide
-                slidesDOM[i].style.zIndex = 100 - i;
+                slides[i].style.zIndex = 100 - i;
 
-                var newSlide = new Slide(slidesDOM[i].dataset.title);
-                    newSlide.SetReference(slidesDOM[i]);
-
-                slides.push(newSlide);
+                // Set opacity for the remaining slides
+                if (i > 0) {
+                    slides[i].style.opacity = 0;
+                    slides[i].style.right = '-100%';
+                }
 
             }
+
+            slider.SetSlides(slides);
 
         }, 0);
 
