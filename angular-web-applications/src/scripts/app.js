@@ -11,6 +11,7 @@
         // Constructor
         this.slides = null;
         this.currentSlideIdx = 0;
+        this.isAnimating = false;
 
     };
 
@@ -21,16 +22,47 @@
         return this.slides;
     };
     Slider.prototype.NextSlide = function () {
-        
-        if (this.currentSlideIdx === (this.slides.length - 1))
+
+        var vm = this;
+
+        if (vm.currentSlideIdx === (vm.slides.length - 1) || vm.isAnimating)
             return;
 
+        vm.isAnimating = true;
+
+        var tl = new TimelineLite();
+        var nextSlide = vm.slides[vm.currentSlideIdx + 1];
+        var currSlide = vm.slides[vm.currentSlideIdx];
+
+        tl.fromTo(currSlide, 0.5, { left: 0, opacity: 1, ease: Expo.easeInOut }, { left: '-15%', opacity: 0, ease: Expo.easeInOut })
+          .fromTo(nextSlide, 0.8, { right: '-15%', opacity: 0, ease: Expo.easeInOut }, { right: 0, opacity: 1, ease: Expo.easeInOut })
+          .eventCallback('onComplete', function () {
+            vm.isAnimating = false;
+            vm.currentSlideIdx += 1;
+          });
+
         console.log('NextSlide');
+
     };
     Slider.prototype.PrevSlide = function () {
+
+        var vm = this;
         
-        if (this.currentSlideIdx === 0)
+        if (vm.currentSlideIdx === 0 || vm.isAnimating)
             return;
+
+        vm.isAnimating = true;
+
+        var tl = new TimelineLite();
+        var nextSlide = vm.slides[vm.currentSlideIdx - 1];
+        var currSlide = vm.slides[vm.currentSlideIdx];
+
+        tl.fromTo(currSlide, 0.5, { right: 0, opacity: 1, ease: Expo.easeInOut }, { right: '-15%', opacity: 0, ease: Expo.easeInOut })
+          .fromTo(nextSlide, 0.8, { left: '-15%', opacity: 0, ease: Expo.easeInOut }, { left: 0, opacity: 1, ease: Expo.easeInOut })
+          .eventCallback('onComplete', function () {
+            vm.isAnimating = false;
+            vm.currentSlideIdx -= 1;
+          });
         
         console.log('PrevSlide');
     };
@@ -45,7 +77,7 @@
      * Initialize App
      */
     function Initialize() {
-        
+
         GetSlides();
         InitializeKeypressListener();
 
@@ -98,16 +130,8 @@
         setTimeout(function () {
 
             for (var i = 0, limit = slides.length; i < limit; ++i) {
-                
                 // Set z-index for each slide
                 slides[i].style.zIndex = 100 - i;
-
-                // Set opacity for the remaining slides
-                if (i > 0) {
-                    slides[i].style.opacity = 0;
-                    slides[i].style.right = '-100%';
-                }
-
             }
 
             slider.SetSlides(slides);
