@@ -2,6 +2,10 @@
 
     'use strict';
 
+    ////////////////////
+    /// Slider Model ///
+    ////////////////////
+
     var Slider = function () {
 
         // Constructor
@@ -13,14 +17,21 @@
     Slider.prototype.SetSlides = function (slides) {
         this.slides = slides;
     };
-
     Slider.prototype.GetSlides = function (slides) {
         return this.slides;
     };
     Slider.prototype.NextSlide = function () {
+        
+        if (this.currentSlideIdx === (this.slides.length - 1))
+            return;
+
         console.log('NextSlide');
     };
     Slider.prototype.PrevSlide = function () {
+        
+        if (this.currentSlideIdx === 0)
+            return;
+        
         console.log('PrevSlide');
     };
 
@@ -44,7 +55,7 @@
      * Initialize Keypress Listener
      */
     function InitializeKeypressListener() {
-        console.log(slider);
+        
         /**
          * Function: Keydown
          *
