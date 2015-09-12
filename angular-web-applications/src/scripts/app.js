@@ -50,7 +50,7 @@
             for (var i = 0, limit = slidesDOM.length; i < limit; ++i) {
                 
                 // Set z-index for each slide
-                slidesDOM[i].style.zIndex = 10 + i;
+                slidesDOM[i].style.zIndex = 100 - i;
 
                 var newSlide = new Slide(slidesDOM[i].dataset.title);
                     newSlide.SetReference(slidesDOM[i]);
