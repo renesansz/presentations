@@ -130,7 +130,8 @@
         setTimeout(function () {
 
             for (var i = 0, limit = slides.length; i < limit; ++i) {
-                // Set z-index for each slide
+
+                // Set z-index for each slide from top to bottom.
                 slides[i].style.zIndex = 100 - i;
 
                 // Hide other slides
@@ -138,6 +139,7 @@
                     slides[i].style.opacity = 0;
                     slides[i].style.right = '-100%';
                 }
+                
             }
 
             slider.SetSlides(slides);
