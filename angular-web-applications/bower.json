@@ -15,7 +15,8 @@
   "dependencies": {
     "angular": "~1.4.5",
     "angular-ui-router": "ui-router#~0.2.15",
-    "gsap": "~1.18.0"
+    "gsap": "~1.18.0",
+    "jquery": "~2.1.4"
   },
   "resolutions": {
     "gsap": "~1.18.0"
