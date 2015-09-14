@@ -1,5 +1,23 @@
+* {
+  font-family: "Open Sans" Arial sans-serif;
+}
+
 body {
   overflow: hidden;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.img-responsive {
+  width: 100%;
+  height: 100%;
+}
+
+.inline-block {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /**
@@ -17,12 +35,29 @@ body {
   z-index: 0;
 }
 
+.heading {
+  font-size: 40px;
+}
+
+.heading,
+.no-margin {
+  margin: 0;
+}
+
 .slide {
   width: 100%;
   height: 100%;
   position: absolute;
   overflow: hidden;
   display: table;
+}
+.slide .content-full {
+  width: 100%;
+  height: 100%;
+}
+.slide .content-full .half-content {
+  height: 50%;
+  position: relative;
 }
 .slide .content {
   width: 95%;
@@ -31,4 +66,29 @@ body {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
+}
+
+#introduction .title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#introduction .title .logo {
+  width: 205px;
+}
+#introduction .presentator {
+  padding-top: 10px;
+}
+#introduction .presentator .info {
+  text-align: left;
+}
+#introduction .presentator .bar {
+  background: #e52939;
+  width: 2px;
+  height: 100px;
+  margin: 0 25px;
+}
+#introduction .half-content:first-child {
+  background: #e52939;
+  color: #FFF;
 }

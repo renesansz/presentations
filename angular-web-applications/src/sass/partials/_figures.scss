@@ -4,3 +4,10 @@
   position: absolute;
   z-index: 0;
 }
+.heading {
+  font-size: 40px;
+}
+.heading,
+.no-margin {
+  margin: 0;
+}
