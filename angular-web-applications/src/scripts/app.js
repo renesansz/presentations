@@ -31,11 +31,15 @@
         vm.isAnimating = true;
 
         var tl = new TimelineLite();
-        var nextSlide = vm.slides[vm.currentSlideIdx + 1];
-        var currSlide = vm.slides[vm.currentSlideIdx];
+        var nextSlide = $(vm.slides[vm.currentSlideIdx + 1]);
+        var currSlide = $(vm.slides[vm.currentSlideIdx]);
+        var nextSlideContent = $(nextSlide).find('.transition-text');
+        var currSlideContent = $(currSlide).find('.transition-text');
 
-        tl.fromTo(currSlide, 0.5, { left: 0, opacity: 1, ease: Expo.easeInOut }, { left: '-15%', opacity: 0, ease: Expo.easeInOut })
-          .fromTo(nextSlide, 0.8, { right: '-15%', opacity: 0, ease: Expo.easeInOut }, { right: 0, opacity: 1, ease: Expo.easeInOut })
+        tl.fromTo(currSlideContent, 0.5, { left: 0, opacity: 1, ease: Expo.easeInOut }, { left: '-15%', opacity: 0, ease: Expo.easeInOut })
+          .fromTo(currSlide, 0.5, { opacity: 1, display: 'block', ease: Expo.easeInOut }, { opacity: 0, display: 'none', ease: Expo.easeInOut }, 0)
+          .fromTo(nextSlideContent, 0.8, { right: '-15%', opacity: 0, ease: Expo.easeInOut }, { right: 0, opacity: 1, ease: Expo.easeInOut }, 0)
+          .fromTo(nextSlide, 0.8, { opacity: 0, display: 'none', ease: Expo.easeInOut }, { right: 0, opacity: 1, display: 'block', ease: Expo.easeInOut }, 0.7)
           .eventCallback('onComplete', function () {
             vm.isAnimating = false;
             vm.currentSlideIdx += 1;
@@ -54,11 +58,15 @@
         vm.isAnimating = true;
 
         var tl = new TimelineLite();
-        var nextSlide = vm.slides[vm.currentSlideIdx - 1];
-        var currSlide = vm.slides[vm.currentSlideIdx];
+        var nextSlide = $(vm.slides[vm.currentSlideIdx - 1]);
+        var currSlide = $(vm.slides[vm.currentSlideIdx]);
+        var nextSlideContent = $(nextSlide).find('.transition-text');
+        var currSlideContent = $(currSlide).find('.transition-text');
 
-        tl.fromTo(currSlide, 0.5, { right: 0, opacity: 1, ease: Expo.easeInOut }, { right: '-15%', opacity: 0, ease: Expo.easeInOut })
-          .fromTo(nextSlide, 0.8, { left: '-15%', opacity: 0, ease: Expo.easeInOut }, { left: 0, opacity: 1, ease: Expo.easeInOut })
+        tl.fromTo(currSlideContent, 0.5, { right: 0, opacity: 1, ease: Expo.easeInOut }, { right: '-15%', opacity: 0, ease: Expo.easeInOut })
+          .fromTo(currSlide, 0.5, { opacity: 1, display: 'block', ease: Expo.easeInOut }, { opacity: 0, display: 'none', ease: Expo.easeInOut }, 0)
+          .fromTo(nextSlideContent, 0.8, { left: '-15%', opacity: 0, ease: Expo.easeInOut }, { left: 0, opacity: 1, ease: Expo.easeInOut })
+          .fromTo(nextSlide, 0.8, { opacity: 0, display: 'none', ease: Expo.easeInOut }, { opacity: 1, display: 'block', ease: Expo.easeInOut })
           .eventCallback('onComplete', function () {
             vm.isAnimating = false;
             vm.currentSlideIdx -= 1;
