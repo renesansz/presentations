@@ -14,4 +14,4 @@ This repo contains my web presentations I've used to different talks/workshops.
 
 **LICENSE: MIT**
 
-Copyright (c) 2015 Renemari Padillo
+2015 Renemari Padillo
