@@ -8,8 +8,6 @@ This repo contains my web presentations I've used to different talks/workshops.
 
 * Then simply clone this repo. [GUIDE](https://help.github.com/articles/which-remote-url-should-i-use/)
 
-**DONE**
-
 ---------------------------------------
 
 **LICENSE: MIT**
