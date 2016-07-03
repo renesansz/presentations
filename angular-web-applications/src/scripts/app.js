@@ -7,12 +7,10 @@
     ////////////////////
 
     var Slider = function () {
-
         // Constructor
         this.slides = null;
         this.currentSlideIdx = 0;
         this.isAnimating = false;
-
     };
 
     Slider.prototype.SetSlides = function (slides) {
