@@ -2,6 +2,7 @@
  * TodoApp Controller
  */
 (function() {
+    
     'use strict';
 
     angular
@@ -51,6 +52,7 @@
          */
         $scope.RemoveTodo = function(index) {
             $scope.todos.splice(index, 1);
+
         };
 
     }
