@@ -30,6 +30,7 @@
          * Add a new todo
          */
         $scope.AddTodo = function() {
+            
             if ( ! $scope.todo.length) { return; } // If title is empty, then don't add anything in the array.
 
             var item = {
@@ -39,6 +40,7 @@
 
             $scope.todos.push(item); // I push lang... :)
             $scope.todo = '';
+
         };
 
         /**
