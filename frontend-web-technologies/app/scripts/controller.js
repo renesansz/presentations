@@ -53,6 +53,7 @@
          *     (Integer) index - The array index
          */
         $scope.RemoveTodo = function(index) {
+            
             $scope.todos.splice(index, 1);
 
         };
