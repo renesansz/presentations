@@ -1,0 +1,29 @@
+{
+  "name": "react-chat",
+  "description": "A simple real-time chat created using ReactJS",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Renemari Padillo <padillo.renemari@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "redis": "^2.7.1",
+    "rxjs": "^5.3.0",
+    "socketio": "^1.0.0",
+    "websocket": "^1.0.24"
+  },
+  "devDependencies": {
+    "enzyme": "^2.8.2",
+    "mock-socket": "^6.0.4",
+    "react-addons-test-utils": "^15.5.1",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

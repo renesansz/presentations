@@ -1,0 +1,17 @@
+.ChatBoxControls {
+  position: relative;
+  width: 100%;
+}
+
+.ChatBoxControls textarea {
+  height: 38px;
+  width: calc(80% - 10px);
+  resize: none;
+  font-size: 15px;
+}
+
+.ChatBoxControls button {
+  height: 50px;
+  width: calc(20% - 10px);
+  vertical-align: top;
+}

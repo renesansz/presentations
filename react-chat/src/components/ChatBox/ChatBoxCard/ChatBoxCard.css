@@ -1,0 +1,28 @@
+.ChatBoxCard {
+  margin: 10px 0;
+  clear: both;
+}
+
+.ChatBoxCard .message {
+  display: inline-block;
+  border: 1px solid rgb(227, 227, 227);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 1px #EEE;
+  max-width: calc(70% - 10px);
+  word-wrap: break-word;
+}
+
+.ChatBoxCard.me .message {
+  background: #7c9eff;
+  color: #E3E3E3;
+  float: right;
+  box-shadow: none;
+}
+
+.ChatBoxCard.system .message {
+  max-width: calc(94% - 10px);
+  border-radius: 0;
+  width: calc(94% - 10px);
+  background: #fbfbfb;
+}

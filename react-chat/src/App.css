@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: left;
+}
+
+@media all and (max-width: 500px) {
+  .App-container {
+    flex-direction: column;
+  }
+}
