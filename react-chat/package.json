@@ -6,7 +6,7 @@
   "author": "Renemari Padillo <padillo.renemari@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "redis": "^2.7.1",
